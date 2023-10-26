@@ -1,16 +1,8 @@
 package info.victorchu.computer.simulation.circuit;
 
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.tuple.Pair;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
-import static info.victorchu.computer.simulation.circuit.Potentials.notEmptyArray;
 
 /**
  * 电位的抽象.

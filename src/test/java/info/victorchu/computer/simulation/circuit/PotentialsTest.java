@@ -3,8 +3,6 @@ package info.victorchu.computer.simulation.circuit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author victorchu
  */
