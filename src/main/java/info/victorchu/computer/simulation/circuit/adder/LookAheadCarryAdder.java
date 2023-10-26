@@ -1,11 +1,11 @@
 package info.victorchu.computer.simulation.circuit.adder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.Potential;
 import info.victorchu.computer.simulation.circuit.gate.ANDGate;
 import info.victorchu.computer.simulation.circuit.gate.ORGate;
 import info.victorchu.computer.simulation.circuit.gate.XORGate;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
 
 /**
  * 超前进位加法器.
@@ -69,11 +69,11 @@ public class LookAheadCarryAdder extends DynamicSimpleCircuitComponent {
         Potential carry = carry(0);
         for (int i = length-1; i >= 0; i--) {
             // pi =ai xor bi
-            CircuitUtils.fire(p[i],input[i],input[i+length]);
+            CircuitComponentUtils.fire(p[i],input[i],input[i+length]);
             // gi = ai and bi
-            CircuitUtils.fire(g[i],input[i],input[i+length]);
+            CircuitComponentUtils.fire(g[i],input[i],input[i+length]);
             // si
-            CircuitUtils.fire(s[i],p[i].output(0),carry);
+            CircuitComponentUtils.fire(s[i],p[i].output(0),carry);
             // ci
             carry = carry(length-i);
             // set state
@@ -101,8 +101,8 @@ public class LookAheadCarryAdder extends DynamicSimpleCircuitComponent {
         int length = getWays();
         for (int i = 0; i < n; i++) {
             // ci
-            CircuitUtils.fire(ands[start+i],p[length-i-1].output(0),tmp);
-            CircuitUtils.fire(ors[start+i],g[length-i-1].output(0),ands[start+i].output(0));
+            CircuitComponentUtils.fire(ands[start+i],p[length-i-1].output(0),tmp);
+            CircuitComponentUtils.fire(ors[start+i],g[length-i-1].output(0),ands[start+i].output(0));
             tmp = ors[start+i].output(0);
         }
         return tmp;

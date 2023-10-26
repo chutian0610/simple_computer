@@ -1,7 +1,8 @@
 package info.victorchu.computer.simulation.circuit.gate;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potential;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,7 @@ class NANDGateTest {
      */
     @Test
     void input11() {
-        Potential[] result = CircuitUtils.compute(gate, Potential.high(), Potential.high());
+        Potential[] result = CircuitComponentUtils.compute(gate, Potential.high(), Potential.high());
         assertFalse(result[0].isHigh());
     }
 
@@ -33,7 +34,7 @@ class NANDGateTest {
      */
     @Test
     void input00() {
-        Potential[] result = CircuitUtils.compute(gate, Potential.low(), Potential.low());
+        Potential[] result = CircuitComponentUtils.compute(gate, Potential.low(), Potential.low());
         assertTrue(result[0].isHigh());
     }
 
@@ -42,7 +43,7 @@ class NANDGateTest {
      */
     @Test
     void input01() {
-        Potential[] result = CircuitUtils.compute(gate, Potential.low(), Potential.high());
+        Potential[] result = CircuitComponentUtils.compute(gate, Potential.low(), Potential.high());
         assertTrue(result[0].isHigh());
     }
 
@@ -51,7 +52,7 @@ class NANDGateTest {
      */
     @Test
     void input10() {
-        Potential[] result = CircuitUtils.compute(gate, Potential.high(), Potential.low());
+        Potential[] result = CircuitComponentUtils.compute(gate, Potential.high(), Potential.low());
         assertTrue(result[0].isHigh());
     }
 }

@@ -1,8 +1,8 @@
 package info.victorchu.computer.simulation.circuit.adder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.Potential;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
 
 /**
  * 行波进位加法器.
@@ -45,7 +45,7 @@ public class RippleCarryAdder extends DynamicSimpleCircuitComponent {
         Potential carry = input[input.length - 1];
         int length = getWays();
         for (int i = length-1; i >= 0; i--) {
-            CircuitUtils.fire(fullAdders[i], input[i], input[i + length], carry);
+            CircuitComponentUtils.fire(fullAdders[i], input[i], input[i + length], carry);
             carry = fullAdders[i].output(0);
             state[i + 1].input(fullAdders[i].output(1));
         }

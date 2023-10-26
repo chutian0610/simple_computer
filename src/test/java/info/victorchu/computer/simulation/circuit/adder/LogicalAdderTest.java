@@ -1,8 +1,9 @@
 package info.victorchu.computer.simulation.circuit.adder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potential;
 import info.victorchu.computer.simulation.circuit.Potentials;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ class LogicalAdderTest {
     @Test
     public void input00_01_0(){
         LogicalAdder adder = new LogicalAdder(2);
-        Potential[] result= CircuitUtils.compute(adder,
+        Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.join(
                         Potentials.fromText("00"),
                         Potentials.fromText("01"),
@@ -26,7 +27,7 @@ class LogicalAdderTest {
     @Test
     public void input00_01_1(){
         LogicalAdder adder = new LogicalAdder(2);
-        Potential[] result= CircuitUtils.compute(adder,
+        Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.join(
                         Potentials.fromText("00"),
                         Potentials.fromText("01"),

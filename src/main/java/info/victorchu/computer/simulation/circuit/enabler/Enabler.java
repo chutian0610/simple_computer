@@ -1,9 +1,9 @@
 package info.victorchu.computer.simulation.circuit.enabler;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.Potential;
 import info.victorchu.computer.simulation.circuit.gate.ANDGate;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
 
 /**
  * 开关.
@@ -45,7 +45,7 @@ public class Enabler extends DynamicSimpleCircuitComponent {
         int length = getWays();
         Potential enable = input[inputLength()-1];
         for (int i = 0; i < length; i++) {
-            CircuitUtils.fire(enables[i],input[i],enable);
+            CircuitComponentUtils.fire(enables[i],input[i],enable);
             state[i].input(enables[i].output(0));
         }
     }

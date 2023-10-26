@@ -1,9 +1,10 @@
 package info.victorchu.computer.simulation.circuit.gates;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.Potential;
 import info.victorchu.computer.simulation.circuit.gate.ORGate;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
+
 import org.apache.commons.lang3.Validate;
 
 /**
@@ -46,7 +47,7 @@ public class ORs extends DynamicSimpleCircuitComponent {
                 // fast end
                 break;
             }
-            result = CircuitUtils.compute(orGates[i - 1], input[i], result)[0];
+            result = CircuitComponentUtils.compute(orGates[i - 1], input[i], result)[0];
         }
         state[0].input(result);
     }

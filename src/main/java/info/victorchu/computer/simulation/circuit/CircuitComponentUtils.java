@@ -1,14 +1,11 @@
-package info.victorchu.computer.simulation.utils;
+package info.victorchu.computer.simulation.circuit;
 
-import info.victorchu.computer.simulation.circuit.CircuitComponent;
-import info.victorchu.computer.simulation.circuit.Potential;
-import info.victorchu.computer.simulation.circuit.Potentials;
 import org.apache.commons.lang3.Validate;
 
 /**
  * @author victorchu
  */
-public class CircuitUtils {
+public class CircuitComponentUtils {
 
     /**
      * 输入&输出

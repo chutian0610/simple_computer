@@ -1,9 +1,9 @@
 package info.victorchu.computer.simulation.circuit.adder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potentials;
 import info.victorchu.computer.simulation.circuit.SimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.gate.ORGate;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
 
 /**
  * 全加器
@@ -47,9 +47,9 @@ public class FullAdder extends SimpleCircuitComponent {
 
     @Override
     public void update() {
-        CircuitUtils.fire(adder1,input[0],input[1]);
-        CircuitUtils.fire(adder2,adder1.output(1),input[2]);
-        CircuitUtils.fire(orGate,adder1.output(0),adder2.output(0));
+        CircuitComponentUtils.fire(adder1,input[0],input[1]);
+        CircuitComponentUtils.fire(adder2,adder1.output(1),input[2]);
+        CircuitComponentUtils.fire(orGate,adder1.output(0),adder2.output(0));
         // 大端序 output = (carry,sum)
         Potentials.merge(state,orGate.output(0), adder2.output(1));
     }

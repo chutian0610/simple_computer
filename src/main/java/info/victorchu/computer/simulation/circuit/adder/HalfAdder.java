@@ -1,10 +1,10 @@
 package info.victorchu.computer.simulation.circuit.adder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potentials;
 import info.victorchu.computer.simulation.circuit.SimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.gate.ANDGate;
 import info.victorchu.computer.simulation.circuit.gate.XORGate;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
 
 /**
  * 半加器
@@ -43,10 +43,10 @@ public class HalfAdder extends SimpleCircuitComponent {
 
     @Override
     public void update() {
-        CircuitUtils.fire(andGate,input);
-        CircuitUtils.fire(xorGate,input);
+        CircuitComponentUtils.fire(andGate,input);
+        CircuitComponentUtils.fire(xorGate,input);
         // 大端序 output = (carry,sum)
-        Potentials.merge(state,CircuitUtils.emit(andGate),CircuitUtils.emit(xorGate));
+        Potentials.merge(state,CircuitComponentUtils.emit(andGate),CircuitComponentUtils.emit(xorGate));
     }
 
     @Override

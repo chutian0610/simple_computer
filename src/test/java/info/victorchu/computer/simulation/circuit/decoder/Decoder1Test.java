@@ -1,8 +1,9 @@
 package info.victorchu.computer.simulation.circuit.decoder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potential;
 import info.victorchu.computer.simulation.circuit.Potentials;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,12 +20,12 @@ class Decoder1Test {
     }
     @Test
     public void input0(){
-        Potential[] result= CircuitUtils.compute(decoder, Potential.low());
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potential.low());
         Assertions.assertArrayEquals(result, Potentials.fromText("01"));
     }
     @Test
     public void input1(){
-        Potential[] result= CircuitUtils.compute(decoder, Potential.high());
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potential.high());
         Assertions.assertArrayEquals(result, Potentials.fromText("10"));
     }
 

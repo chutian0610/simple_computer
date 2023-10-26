@@ -1,9 +1,9 @@
 package info.victorchu.computer.simulation.circuit.decoder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.SimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.gate.ANDGate;
 import info.victorchu.computer.simulation.circuit.gate.NOTGate;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
 
 /**
  * 2-4线decoder.
@@ -47,13 +47,13 @@ public class Decoder2 extends SimpleCircuitComponent {
 
     @Override
     public void update() {
-        CircuitUtils.fire(notGates[0],input[0]);
-        CircuitUtils.fire(notGates[1],input[1]);
+        CircuitComponentUtils.fire(notGates[0],input[0]);
+        CircuitComponentUtils.fire(notGates[1],input[1]);
 
-        CircuitUtils.fire(andGates[0],input[0],input[1]);
-        CircuitUtils.fire(andGates[1],input[0],notGates[1].output(0));
-        CircuitUtils.fire(andGates[2],notGates[0].output(0),input[1]);
-        CircuitUtils.fire(andGates[3],notGates[0].output(0),notGates[1].output(0));
+        CircuitComponentUtils.fire(andGates[0],input[0],input[1]);
+        CircuitComponentUtils.fire(andGates[1],input[0],notGates[1].output(0));
+        CircuitComponentUtils.fire(andGates[2],notGates[0].output(0),input[1]);
+        CircuitComponentUtils.fire(andGates[3],notGates[0].output(0),notGates[1].output(0));
 
         state[0].input(andGates[0].output(0));
         state[1].input(andGates[1].output(0));

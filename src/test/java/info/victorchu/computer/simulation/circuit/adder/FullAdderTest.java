@@ -1,8 +1,9 @@
 package info.victorchu.computer.simulation.circuit.adder;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potential;
 import info.victorchu.computer.simulation.circuit.Potentials;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,48 +20,48 @@ public class FullAdderTest {
     }
     @Test
     public void input000(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("000"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("000"));
         Assertions.assertArrayEquals(result, Potentials.fromText("00"));
     }
 
 
     @Test
     public void input001(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("001"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("001"));
         Assertions.assertArrayEquals(result, Potentials.fromText("01"));
     }
 
     @Test
     public void input010(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("010"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("010"));
         Assertions.assertArrayEquals(result, Potentials.fromText("01"));
     }
     @Test
     public void input100(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("100"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("100"));
         Assertions.assertArrayEquals(result, Potentials.fromText("01"));
     }
 
     @Test
     public void input011(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("011"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("011"));
         Assertions.assertArrayEquals(result, Potentials.fromText("10"));
     }
     @Test
     public void input110(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("110"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("110"));
         Assertions.assertArrayEquals(result, Potentials.fromText("10"));
     }
 
     @Test
     public void input101(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("101"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("101"));
         Assertions.assertArrayEquals(result, Potentials.fromText("10"));
     }
 
     @Test
     public void input111(){
-        Potential[] result= CircuitUtils.compute(adder, Potentials.fromText("111"));
+        Potential[] result= CircuitComponentUtils.compute(adder, Potentials.fromText("111"));
         Assertions.assertArrayEquals(result, Potentials.fromText("11"));
     }
 }

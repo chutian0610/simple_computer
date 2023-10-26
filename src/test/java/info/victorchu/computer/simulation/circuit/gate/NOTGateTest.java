@@ -1,7 +1,8 @@
 package info.victorchu.computer.simulation.circuit.gate;
 
+import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potential;
-import info.victorchu.computer.simulation.utils.CircuitUtils;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +22,7 @@ class NOTGateTest {
      */
     @Test
     void input0() {
-        Potential[] result = CircuitUtils.compute(gate,Potential.low());
+        Potential[] result = CircuitComponentUtils.compute(gate,Potential.low());
         assertTrue(result[0].isHigh());
     }
     /**
@@ -29,7 +30,7 @@ class NOTGateTest {
      */
     @Test
     void input1() {
-        Potential[] result = CircuitUtils.compute(gate,Potential.high());
+        Potential[] result = CircuitComponentUtils.compute(gate,Potential.high());
         assertFalse(result[0].isHigh());
     }
 }
