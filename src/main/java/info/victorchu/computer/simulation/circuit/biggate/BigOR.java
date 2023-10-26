@@ -1,4 +1,4 @@
-package info.victorchu.computer.simulation.circuit.gates;
+package info.victorchu.computer.simulation.circuit.biggate;
 
 import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
@@ -10,10 +10,10 @@ import org.apache.commons.lang3.Validate;
 /**
  * @author victorchu
  */
-public class ORs extends DynamicSimpleCircuitComponent {
+public class BigOR extends DynamicSimpleCircuitComponent {
     private ORGate[] orGates;
 
-    public ORs(int ways) {
+    public BigOR(int ways) {
         super(ways);
         Validate.isTrue(ways>=2,"OR gates ways must >=2");
         init();

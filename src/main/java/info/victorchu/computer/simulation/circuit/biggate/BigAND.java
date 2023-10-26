@@ -1,4 +1,4 @@
-package info.victorchu.computer.simulation.circuit.gates;
+package info.victorchu.computer.simulation.circuit.biggate;
 
 import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
@@ -12,10 +12,10 @@ import org.apache.commons.lang3.Validate;
  *
  * @author victorchu
  */
-public class ANDs extends DynamicSimpleCircuitComponent {
+public class BigAND extends DynamicSimpleCircuitComponent {
     private ANDGate[] andGates;
 
-    public ANDs(int ways) {
+    public BigAND(int ways) {
         super(ways);
         Validate.isTrue(ways>=2,"and gates ways must >=2");
         init();
