@@ -18,8 +18,8 @@ public abstract class SimpleCircuitComponent implements CircuitComponent{
 
     @Override
     public void reset() {
-        Potentials.initArray(input);
-        Potentials.initArray(state);
+        Potentials.fillArray(input);
+        Potentials.fillArray(state);
     }
 
     protected SimpleCircuitComponent() {
@@ -33,8 +33,8 @@ public abstract class SimpleCircuitComponent implements CircuitComponent{
     protected void init(){
         this.input= new Potential[inputLength()];
         this.state= new Potential[outputLength()];
-        Potentials.initArray(input);
-        Potentials.initArray(state);
+        Potentials.fillArray(input);
+        Potentials.fillArray(state);
     }
 
     @Override

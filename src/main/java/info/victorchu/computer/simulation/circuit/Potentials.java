@@ -29,7 +29,6 @@ public class Potentials {
         return Arrays.copyOfRange(array,from,to);
     }
 
-
     /**
      *  构建Potential Array 并使用默认值初始化
      * @param length 初始化长度
@@ -67,8 +66,8 @@ public class Potentials {
      * 使用默认值设置Potential Array
      * @param array Potential Array
      */
-    public static  void initArray(Potential[] array){
-        initArray(array, integer -> Potential.low());
+    public static  void fillArray(Potential[] array){
+        fillArray(array, integer -> Potential.low());
     }
 
     /**
@@ -76,7 +75,7 @@ public class Potentials {
      * @param array 数组
      * @param valueSupplier 重置值
      */
-    public static void initArray(Potential[] array, Function<Integer,Potential> valueSupplier){
+    public static void fillArray(Potential[] array, Function<Integer,Potential> valueSupplier){
         if(array == null ||array.length ==0){
             return;
         }
@@ -85,6 +84,68 @@ public class Potentials {
         for (int i = 0; i < array.length; i++) {
             array[i] = valueSupplier.apply(i);
         }
+    }
+
+    public static void merge(Potential[] state, Object... potentials) {
+        Validate.isTrue(potentials != null && potentials.length > 0);
+        Validate.isTrue(notEmptyArray(state));
+
+        int length = 0;
+        for (Object component : potentials) {
+            Validate.isTrue(component !=null);
+            if(component instanceof Potential[]) {
+                Validate.isTrue(notEmptyArray((Potential[]) component));
+                length += ((Potential[]) component).length;
+            }else if(component instanceof Potential){
+                length += 1;
+            }else {
+                throw new IllegalArgumentException("只支持Potential[]和Potential");
+            }
+        }
+        Validate.isTrue(state.length == length);
+
+        int cursor = 0;
+        for (Object component : potentials) {
+            if(component instanceof Potential[]) {
+                for (Potential potential : (Potential[]) component) {
+                    state[cursor] = potential;
+                    cursor++;
+                }
+            }else {
+                state[cursor] = (Potential) component;
+                cursor++;
+            }
+        }
+    }
+
+    public static Potential[] join(Object... potentials) {
+        Validate.isTrue(potentials != null && potentials.length > 0);
+        int length = 0;
+        for (Object component : potentials) {
+            Validate.isTrue(component !=null);
+            if(component instanceof Potential[]) {
+                Validate.isTrue(notEmptyArray((Potential[]) component));
+                length += ((Potential[]) component).length;
+            }else if(component instanceof Potential){
+                length += 1;
+            }else {
+                throw new IllegalArgumentException("只支持Potential[]和Potential");
+            }
+        }
+        Potential[] state = new Potential[length];
+        int cursor = 0;
+        for (Object component : potentials) {
+            if(component instanceof Potential[]) {
+                for (Potential potential : (Potential[]) component) {
+                    state[cursor] = potential;
+                    cursor++;
+                }
+            }else {
+                state[cursor] = (Potential) component;
+                cursor++;
+            }
+        }
+        return state;
     }
 
     /**
@@ -138,8 +199,9 @@ public class Potentials {
             tmp = re.getRight();
         }
         return Pair.of(result,tmp);
-
     }
+
+    // ============================= 转化方法 ===================================
 
     public static Potential[] fromText(String pStr){
         return fromText(pStr,true);
@@ -228,13 +290,24 @@ public class Potentials {
         return stringBuilder.toString();
     }
 
+    public static int toUnsignedInt(Potential[] potentials){
+        Validate.isTrue(potentials != null && potentials.length>0 && potentials.length<32);
+        int re = 0;
+        // 大端序(高位在低地址)，从高地址开始遍历
+        for (int i = potentials.length-1; i>=0;i--) {
+            if(potentials[i].isHigh()){
+                re = re + (int) Math.pow(2,potentials.length-1-i);
+            }
+        }
+        return re;
+    }
 
     /**
      * 验证 Potential Array的合法性
      * @param array 输入数组
      */
-    public static boolean notEmptyArray(Potential[] array){
-        if(array == null || array.length==0){
+    public static boolean notEmptyArray(Potential[] array) {
+        if (array == null || array.length == 0) {
             return false;
         }
         for (Potential potential : array) {
@@ -243,67 +316,5 @@ public class Potentials {
             }
         }
         return true;
-    }
-
-    public static void merge(Potential[] state, Object... potentials) {
-        Validate.isTrue(potentials != null && potentials.length > 0);
-        Validate.isTrue(notEmptyArray(state));
-
-        int length = 0;
-        for (Object component : potentials) {
-            Validate.isTrue(component !=null);
-            if(component instanceof Potential[]) {
-                Validate.isTrue(notEmptyArray((Potential[]) component));
-                length += ((Potential[]) component).length;
-            }else if(component instanceof Potential){
-                length += 1;
-            }else {
-                throw new IllegalArgumentException("只支持Potential[]和Potential");
-            }
-        }
-        Validate.isTrue(state.length == length);
-
-        int cursor = 0;
-        for (Object component : potentials) {
-            if(component instanceof Potential[]) {
-                for (Potential potential : (Potential[]) component) {
-                    state[cursor] = potential;
-                    cursor++;
-                }
-            }else {
-                state[cursor] = (Potential) component;
-                cursor++;
-            }
-        }
-    }
-
-    public static Potential[] join(Object... potentials) {
-        Validate.isTrue(potentials != null && potentials.length > 0);
-        int length = 0;
-        for (Object component : potentials) {
-            Validate.isTrue(component !=null);
-            if(component instanceof Potential[]) {
-                Validate.isTrue(notEmptyArray((Potential[]) component));
-                length += ((Potential[]) component).length;
-            }else if(component instanceof Potential){
-                length += 1;
-            }else {
-                throw new IllegalArgumentException("只支持Potential[]和Potential");
-            }
-        }
-        Potential[] state = new Potential[length];
-        int cursor = 0;
-        for (Object component : potentials) {
-            if(component instanceof Potential[]) {
-                for (Potential potential : (Potential[]) component) {
-                    state[cursor] = potential;
-                    cursor++;
-                }
-            }else {
-                state[cursor] = (Potential) component;
-                cursor++;
-            }
-        }
-        return state;
     }
 }
