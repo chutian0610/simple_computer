@@ -4,7 +4,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -66,8 +69,28 @@ public class Potentials {
      * 使用默认值设置Potential Array
      * @param array Potential Array
      */
-    public static  void fillArray(Potential[] array){
+    public static void fillArray(Potential[] array){
         fillArray(array, integer -> Potential.low());
+    }
+
+    /**
+     * 使用数组设置Potential Array
+     * @param array Potential Array
+     */
+    public static void fillArray(Potential[] array,Potential[] source){
+        Validate.isTrue(notEmptyArray(array));        
+        Validate.isTrue(notEmptyArray(source));
+        Validate.isTrue(array.length>=source.length);
+        int gap = array.length-source.length;
+        fillArray(array,integer->{
+            if(integer<gap){
+                return Potential.low();
+            }else{
+                return source[integer-gap];
+            }
+        });
+    
+
     }
 
     /**
@@ -301,6 +324,22 @@ public class Potentials {
         }
         return re;
     }
+
+    public static Potential[] fromUnsignedInt(int value){
+        List<Integer> list = new ArrayList<>();
+        while (value>0) {
+            int num = value%2;
+            list.add(num);
+            value = value/2;
+        }
+        Collections.reverse(list);
+        Potential[] potentials = Potentials.array(list.size());
+        for (int i = 0; i < list.size(); i++) {
+            potentials[i].input(Potential.of(list.get(i) == 1));
+        }
+        return potentials;
+    }
+    
 
     /**
      * 验证 Potential Array的合法性

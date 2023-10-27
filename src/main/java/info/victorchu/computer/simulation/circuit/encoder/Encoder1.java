@@ -19,7 +19,7 @@ public class Encoder1 extends SimpleCircuitComponent {
 
     @Override
     public void update() {
-        state[0].input(input[1].output());
+        state[0].input(input[0].output());
     }
 
     @Override

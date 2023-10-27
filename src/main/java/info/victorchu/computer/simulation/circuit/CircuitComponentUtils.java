@@ -40,6 +40,31 @@ public class CircuitComponentUtils {
         c.update();
     }
 
+
+    /**
+     * 输出
+     * @param c
+     * @return
+     */
+    public static Potential[] emits(CircuitComponent... components){
+        int length = 0;
+        Validate.isTrue(components != null);
+        for (CircuitComponent circuitComponent : components) {
+            Validate.isTrue(circuitComponent != null);
+            length = length+ circuitComponent.outputLength();
+        }
+        Potential[] result = new Potential[length];
+        int index=0;
+        for (CircuitComponent circuitComponent : components) {
+            int sublength = circuitComponent.outputLength();
+            for (int i = 0; i < sublength; i++) {
+                result[index] = circuitComponent.output(i);
+                index++;
+            }
+        }
+        return result;
+    }
+
     /**
      * 输出
      * @param c

@@ -20,4 +20,9 @@ class PotentialsTest {
     void toUnsignedInt1024() {
         Assertions.assertEquals(1024,Potentials.toUnsignedInt(Potentials.fromText("0100 0000 0000")));
     }
+
+    @Test
+    void fromUnsignedInt1024() {
+        Assertions.assertEquals("0100 0000 0000",Potentials.toText(Potentials.fromUnsignedInt(1024),4));
+    }
 }
