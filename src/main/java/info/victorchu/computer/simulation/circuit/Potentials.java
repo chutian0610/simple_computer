@@ -57,7 +57,7 @@ public class Potentials {
      */
     public static Potential[] array(int length, Function<Integer,Potential> valueSupplier){
         Validate.isTrue(valueSupplier != null);
-        Validate.isTrue(length>0,"array length must >0");
+        Validate.isTrue(length>0,"array length must > 0");
         Potential[] potentials = new Potential[length];
         for (int i = 0; i < potentials.length; i++) {
             potentials[i] = valueSupplier.apply(i);
@@ -326,6 +326,9 @@ public class Potentials {
     }
 
     public static Potential[] fromUnsignedInt(int value){
+        if(value==0){
+            return Potentials.array(1);
+        }
         List<Integer> list = new ArrayList<>();
         while (value>0) {
             int num = value%2;

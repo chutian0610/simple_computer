@@ -15,14 +15,16 @@ public class Encoder1Test {
     void init() {
         encoder.reset();
     }
+
     @Test
-    public void input01(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("01"));
+    public void input01() {
+        Potential[] result = CircuitComponentUtils.compute(encoder, Potentials.fromText("01"));
         Assertions.assertEquals("0", Potentials.toText(result));
     }
-        @Test
-    public void input10(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("10"));
+
+    @Test
+    public void input10() {
+        Potential[] result = CircuitComponentUtils.compute(encoder, Potentials.fromText("10"));
         Assertions.assertEquals("1", Potentials.toText(result));
     }
 }

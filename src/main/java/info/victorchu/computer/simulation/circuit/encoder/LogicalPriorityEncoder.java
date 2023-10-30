@@ -3,9 +3,9 @@ package info.victorchu.computer.simulation.circuit.encoder;
 import info.victorchu.computer.simulation.circuit.DynamicSimpleCircuitComponent;
 import info.victorchu.computer.simulation.circuit.Potentials;
 
-public class LogicalEncoder extends DynamicSimpleCircuitComponent {
+public class LogicalPriorityEncoder extends DynamicSimpleCircuitComponent {
 
-    public LogicalEncoder(int ways) {
+    public LogicalPriorityEncoder(int ways) {
         super(ways);
         init();
     }
