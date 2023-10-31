@@ -3,7 +3,6 @@ package info.victorchu.computer.simulation.circuit.encoder;
 import info.victorchu.computer.simulation.circuit.CircuitComponentUtils;
 import info.victorchu.computer.simulation.circuit.Potentials;
 import info.victorchu.computer.simulation.circuit.SimpleCircuitComponent;
-import info.victorchu.computer.simulation.circuit.gate.ANDGate;
 import info.victorchu.computer.simulation.circuit.gate.ORGate;
 
 /**
