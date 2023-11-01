@@ -15,7 +15,7 @@ class LogicalAdderTest {
     public void input00_01_0(){
         LogicalAdder adder = new LogicalAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("00"),
                         Potentials.fromText("01"),
                         Potential.low()
@@ -28,7 +28,7 @@ class LogicalAdderTest {
     public void input00_01_1(){
         LogicalAdder adder = new LogicalAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("00"),
                         Potentials.fromText("01"),
                         Potential.high()

@@ -15,7 +15,7 @@ class EnablerTest {
     public void input10_0(){
         Enabler adder = new Enabler(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("10"),
                         Potential.low()
                 )
@@ -26,7 +26,7 @@ class EnablerTest {
     public void input101_1(){
         Enabler adder = new Enabler(3);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("101"),
                         Potential.high()
                 )

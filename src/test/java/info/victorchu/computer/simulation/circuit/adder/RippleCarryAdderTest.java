@@ -15,7 +15,7 @@ public class RippleCarryAdderTest {
     public void input00_01_0(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("00"),
                         Potentials.fromText("01"),
                         Potential.low()
@@ -28,7 +28,7 @@ public class RippleCarryAdderTest {
     public void input00_01_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("00"),
                         Potentials.fromText("01"),
                         Potential.high()
@@ -40,7 +40,7 @@ public class RippleCarryAdderTest {
     public void input01_01_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("01"),
                         Potentials.fromText("01"),
                         Potential.high()
@@ -52,7 +52,7 @@ public class RippleCarryAdderTest {
     public void input10_01_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("10"),
                         Potentials.fromText("01"),
                         Potential.high()
@@ -65,7 +65,7 @@ public class RippleCarryAdderTest {
     public void input10_10_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("10"),
                         Potentials.fromText("10"),
                         Potential.high()
@@ -78,7 +78,7 @@ public class RippleCarryAdderTest {
     public void input11_11_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("11"),
                         Potentials.fromText("11"),
                         Potential.high()
@@ -91,7 +91,7 @@ public class RippleCarryAdderTest {
     public void input011_001_1(){
         RippleCarryAdder adder = new RippleCarryAdder(3);
         Potential[] result= CircuitComponentUtils.compute(adder,
-                Potentials.join(
+                Potentials.merge(
                         Potentials.fromText("011"),
                         Potentials.fromText("001"),
                         Potential.high()

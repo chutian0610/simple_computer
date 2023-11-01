@@ -28,6 +28,10 @@ public class Potentials {
         return Arrays.copyOfRange(array,0,array.length);
     }
 
+    public static Potential[] of(Potential[] array,int from){
+        return Arrays.copyOfRange(array,from,array.length);
+    }
+
     public static Potential[] of(Potential[] array,int from, int to){
         return Arrays.copyOfRange(array,from,to);
     }
@@ -109,7 +113,7 @@ public class Potentials {
         }
     }
 
-    public static void merge(Potential[] state, Object... potentials) {
+    public static void mergeInto(Potential[] state, Object... potentials) {
         Validate.isTrue(potentials != null && potentials.length > 0);
         Validate.isTrue(notEmptyArray(state));
 
@@ -141,7 +145,7 @@ public class Potentials {
         }
     }
 
-    public static Potential[] join(Object... potentials) {
+    public static Potential[] merge(Object... potentials) {
         Validate.isTrue(potentials != null && potentials.length > 0);
         int length = 0;
         for (Object component : potentials) {
@@ -222,6 +226,28 @@ public class Potentials {
             tmp = re.getRight();
         }
         return Pair.of(result,tmp);
+    }
+
+    public static Potential[] zipAnd(Potential[] a,Potential[] b){
+        Validate.isTrue(notEmptyArray(a),"Potential Array 不合法");
+        Validate.isTrue(notEmptyArray(b),"Potential Array 不合法");
+        Validate.isTrue(a.length>0 && a.length ==b.length,"Potential Array的长度需要相等，且大于0");
+
+        Potential[] result = array(a.length);
+        for (int i = 0; i<a.length; i++) {
+            result[i].input(Potential.and(a[i],b[i]));
+        }
+        return result;
+    }
+    public static void zipAndInto(Potential[] r,Potential[] a,Potential[] b){
+        Validate.isTrue(notEmptyArray(a),"Potential Array 不合法");
+        Validate.isTrue(notEmptyArray(b),"Potential Array 不合法");
+        Validate.isTrue(notEmptyArray(r),"Potential Array 不合法");
+
+        Validate.isTrue(a.length>0 && a.length ==b.length && a.length ==r.length,"Potential Array的长度需要相等，且大于0");
+        for (int i = 0; i<a.length; i++) {
+            r[i].input(Potential.and(a[i],b[i]));
+        }
     }
 
     // ============================= 转化方法 ===================================

@@ -51,7 +51,7 @@ public class FullAdder extends SimpleCircuitComponent {
         CircuitComponentUtils.fire(adder2,adder1.output(1),input[2]);
         CircuitComponentUtils.fire(orGate,adder1.output(0),adder2.output(0));
         // 大端序 output = (carry,sum)
-        Potentials.merge(state,orGate.output(0), adder2.output(1));
+        Potentials.mergeInto(state,orGate.output(0), adder2.output(1));
     }
 
     @Override

@@ -46,7 +46,7 @@ public class HalfAdder extends SimpleCircuitComponent {
         CircuitComponentUtils.fire(andGate,input);
         CircuitComponentUtils.fire(xorGate,input);
         // 大端序 output = (carry,sum)
-        Potentials.merge(state,CircuitComponentUtils.emit(andGate),CircuitComponentUtils.emit(xorGate));
+        Potentials.mergeInto(state,CircuitComponentUtils.emit(andGate),CircuitComponentUtils.emit(xorGate));
     }
 
     @Override
