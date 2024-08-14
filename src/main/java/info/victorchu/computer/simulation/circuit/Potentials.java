@@ -252,8 +252,11 @@ public class Potentials {
 
     // ============================= 转化方法 ===================================
 
-    public static Potential[] fromText(String pStr){
+    public static Potential[] fromTextB(String pStr){
         return fromText(pStr,true);
+    }
+    public static Potential[] fromTextL(String pStr){
+        return fromText(pStr,false);
     }
     /**
      * 从文本构建 PotentialArray
@@ -284,10 +287,10 @@ public class Potentials {
      * @param array 电位数组
      * @return
      */
-    public static String toText(Potential[] array){
+    public static String toTextB(Potential[] array){
         return toText(array,0,null,true);
     }
-    public static String toText(Potential[] array,int group){
+    public static String toTextB(Potential[] array, int group){
         Validate.isTrue(group>=0);
         return toText(array,group,null,true);
     }

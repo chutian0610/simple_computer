@@ -18,21 +18,21 @@ public class Encoder2Test {
     @Test
     public void input0001(){
         Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0001"));
-        Assertions.assertEquals("00", Potentials.toText(result));
+        Assertions.assertEquals("00", Potentials.toTextB(result));
     }
     @Test
     public void input0010(){
         Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0010"));
-        Assertions.assertEquals("01", Potentials.toText(result));
+        Assertions.assertEquals("01", Potentials.toTextB(result));
     }
     @Test
     public void input0100(){
         Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0100"));
-        Assertions.assertEquals("10", Potentials.toText(result));
+        Assertions.assertEquals("10", Potentials.toTextB(result));
     }
     @Test
     public void input1000(){
         Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("1000"));
-        Assertions.assertEquals("11", Potentials.toText(result));
+        Assertions.assertEquals("11", Potentials.toTextB(result));
     }
 }

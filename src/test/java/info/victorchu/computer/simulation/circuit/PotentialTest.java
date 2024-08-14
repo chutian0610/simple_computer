@@ -40,7 +40,7 @@ class PotentialTest {
                 Potential.high(),Potential.high(),
                 Potential.high(),Potential.low()
         };
-        assertEquals("1110",Potentials.toText(array));
+        assertEquals("1110",Potentials.toTextB(array));
     }
 
 }

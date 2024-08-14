@@ -15,7 +15,7 @@ public class MultiplexerTest {
                 Potentials.merge(
                         Potentials.fromText("00"),
                         Potential.low()));
-        Assertions.assertEquals("0", Potentials.toText(result));
+        Assertions.assertEquals("0", Potentials.toTextB(result));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class MultiplexerTest {
                 Potentials.merge(
                         Potentials.fromText("00"),
                         Potential.high()));
-        Assertions.assertEquals("0", Potentials.toText(result));
+        Assertions.assertEquals("0", Potentials.toTextB(result));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class MultiplexerTest {
                 Potentials.merge(
                         Potentials.fromText("01"),
                         Potential.low()));
-        Assertions.assertEquals("1", Potentials.toText(result));
+        Assertions.assertEquals("1", Potentials.toTextB(result));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class MultiplexerTest {
                 Potentials.merge(
                         Potentials.fromText("10"),
                         Potential.low()));
-        Assertions.assertEquals("0", Potentials.toText(result));
+        Assertions.assertEquals("0", Potentials.toTextB(result));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class MultiplexerTest {
                 Potentials.merge(
                         Potentials.fromText("0001"),
                         Potentials.fromText("00")));
-        Assertions.assertEquals("1", Potentials.toText(result));
+        Assertions.assertEquals("1", Potentials.toTextB(result));
     }
        @Test
     public void input0001_01() {
@@ -64,6 +64,6 @@ public class MultiplexerTest {
                 Potentials.merge(
                         Potentials.fromText("0010"),
                         Potentials.fromText("01")));
-        Assertions.assertEquals("1", Potentials.toText(result));
+        Assertions.assertEquals("1", Potentials.toTextB(result));
     }
 }
