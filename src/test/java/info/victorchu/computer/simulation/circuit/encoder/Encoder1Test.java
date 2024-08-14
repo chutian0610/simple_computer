@@ -18,13 +18,13 @@ public class Encoder1Test {
 
     @Test
     public void input01() {
-        Potential[] result = CircuitComponentUtils.compute(encoder, Potentials.fromText("01"));
+        Potential[] result = CircuitComponentUtils.compute(encoder, Potentials.fromTextB("01"));
         Assertions.assertEquals("0", Potentials.toTextB(result));
     }
 
     @Test
     public void input10() {
-        Potential[] result = CircuitComponentUtils.compute(encoder, Potentials.fromText("10"));
+        Potential[] result = CircuitComponentUtils.compute(encoder, Potentials.fromTextB("10"));
         Assertions.assertEquals("1", Potentials.toTextB(result));
     }
 }

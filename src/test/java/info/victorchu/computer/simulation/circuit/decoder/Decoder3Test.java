@@ -20,42 +20,42 @@ class Decoder3Test {
     }
     @Test
     public void input000(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("000"));
-        Assertions.assertEquals("0000 0001", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("000"));
+        Assertions.assertEquals("0000 0001", Potentials.toTextB(result,4));
     }
     @Test
     public void input001(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("001"));
-        Assertions.assertEquals("0000 0010", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("001"));
+        Assertions.assertEquals("0000 0010", Potentials.toTextB(result,4));
     }
     @Test
     public void input010(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("010"));
-        Assertions.assertEquals("0000 0100", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("010"));
+        Assertions.assertEquals("0000 0100", Potentials.toTextB(result,4));
     }
     @Test
     public void input011(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("011"));
-        Assertions.assertEquals("0000 1000", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("011"));
+        Assertions.assertEquals("0000 1000", Potentials.toTextB(result,4));
     }
     @Test
     public void input100(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("100"));
-        Assertions.assertEquals("0001 0000", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("100"));
+        Assertions.assertEquals("0001 0000", Potentials.toTextB(result,4));
     }
     @Test
     public void input101(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("101"));
-        Assertions.assertEquals("0010 0000", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("101"));
+        Assertions.assertEquals("0010 0000", Potentials.toTextB(result,4));
     }
     @Test
     public void input110(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("110"));
-        Assertions.assertEquals("0100 0000", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("110"));
+        Assertions.assertEquals("0100 0000", Potentials.toTextB(result,4));
     }
     @Test
     public void input111(){
-        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromText("111"));
-        Assertions.assertEquals("1000 0000", Potentials.toText(result,4));
+        Potential[] result= CircuitComponentUtils.compute(decoder, Potentials.fromTextB("111"));
+        Assertions.assertEquals("1000 0000", Potentials.toTextB(result,4));
     }
 }

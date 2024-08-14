@@ -15,19 +15,19 @@ public class ANDsTest {
     @Test
     public void input0010(){
         BigAND and = new BigAND(4);
-        Potential[] result= CircuitComponentUtils.compute(and, Potentials.fromText("0010"));
-        Assertions.assertArrayEquals(result, Potentials.fromText("0"));
+        Potential[] result= CircuitComponentUtils.compute(and, Potentials.fromTextB("0010"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("0"));
     }
     @Test
     public void input1111(){
         BigAND and = new BigAND(4);
-        Potential[] result= CircuitComponentUtils.compute(and, Potentials.fromText("1111"));
-        Assertions.assertArrayEquals(result, Potentials.fromText("1"));
+        Potential[] result= CircuitComponentUtils.compute(and, Potentials.fromTextB("1111"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("1"));
     }
     @Test
     public void input1110(){
         BigAND and = new BigAND(4);
-        Potential[] result= CircuitComponentUtils.compute(and, Potentials.fromText("1110"));
-        Assertions.assertArrayEquals(result, Potentials.fromText("0"));
+        Potential[] result= CircuitComponentUtils.compute(and, Potentials.fromTextB("1110"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("0"));
     }
 }

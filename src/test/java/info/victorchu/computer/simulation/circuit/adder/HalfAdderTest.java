@@ -21,26 +21,26 @@ public class HalfAdderTest {
     @Test
      void input00(){
         Potential[] result= CircuitComponentUtils.compute(adder,Potential.low(),Potential.low());
-        Assertions.assertArrayEquals(result, Potentials.fromText("00"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("00"));
     }
 
     @Test
     void input01(){
         Potential[] result= CircuitComponentUtils.compute(adder,Potential.low(),Potential.high());
-        Assertions.assertArrayEquals(result, Potentials.fromText("01"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("01"));
     }
 
     @Test
     void input10(){
         Potential[] result= CircuitComponentUtils.compute(adder,Potential.high(),Potential.low());
-        Assertions.assertArrayEquals(result, Potentials.fromText("01"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("01"));
     }
 
 
     @Test
     void input11(){
         Potential[] result= CircuitComponentUtils.compute(adder,Potential.high(),Potential.high());
-        Assertions.assertArrayEquals(result, Potentials.fromText("10"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("10"));
     }
 
 }

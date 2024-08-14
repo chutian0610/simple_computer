@@ -17,27 +17,27 @@ public class PriorityEncoder2Test {
     }
         @Test
     public void input0000(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0000"));
+        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromTextB("0000"));
         Assertions.assertEquals("000", Potentials.toTextB(result));
     }
     @Test
     public void input0001(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0001"));
+        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromTextB("0001"));
         Assertions.assertEquals("100", Potentials.toTextB(result));
     }
     @Test
     public void input0010(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0010"));
+        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromTextB("0010"));
         Assertions.assertEquals("101", Potentials.toTextB(result));
     }
     @Test
     public void input0100(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("0100"));
+        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromTextB("0100"));
         Assertions.assertEquals("110", Potentials.toTextB(result));
     }
     @Test
     public void input1000(){
-        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromText("1000"));
+        Potential[] result= CircuitComponentUtils.compute(encoder, Potentials.fromTextB("1000"));
         Assertions.assertEquals("111", Potentials.toTextB(result));
     }
 }

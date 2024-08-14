@@ -13,7 +13,7 @@ public class MultiplexerTest {
         Multiplexer mux = new Multiplexer(1);
         Potential[] result = CircuitComponentUtils.compute(mux,
                 Potentials.merge(
-                        Potentials.fromText("00"),
+                        Potentials.fromTextB("00"),
                         Potential.low()));
         Assertions.assertEquals("0", Potentials.toTextB(result));
     }
@@ -23,7 +23,7 @@ public class MultiplexerTest {
         Multiplexer mux = new Multiplexer(1);
         Potential[] result = CircuitComponentUtils.compute(mux,
                 Potentials.merge(
-                        Potentials.fromText("00"),
+                        Potentials.fromTextB("00"),
                         Potential.high()));
         Assertions.assertEquals("0", Potentials.toTextB(result));
     }
@@ -33,7 +33,7 @@ public class MultiplexerTest {
         Multiplexer mux = new Multiplexer(1);
         Potential[] result = CircuitComponentUtils.compute(mux,
                 Potentials.merge(
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("01"),
                         Potential.low()));
         Assertions.assertEquals("1", Potentials.toTextB(result));
     }
@@ -43,7 +43,7 @@ public class MultiplexerTest {
         Multiplexer mux = new Multiplexer(1);
         Potential[] result = CircuitComponentUtils.compute(mux,
                 Potentials.merge(
-                        Potentials.fromText("10"),
+                        Potentials.fromTextB("10"),
                         Potential.low()));
         Assertions.assertEquals("0", Potentials.toTextB(result));
     }
@@ -53,8 +53,8 @@ public class MultiplexerTest {
         Multiplexer mux = new Multiplexer(2);
         Potential[] result = CircuitComponentUtils.compute(mux,
                 Potentials.merge(
-                        Potentials.fromText("0001"),
-                        Potentials.fromText("00")));
+                        Potentials.fromTextB("0001"),
+                        Potentials.fromTextB("00")));
         Assertions.assertEquals("1", Potentials.toTextB(result));
     }
        @Test
@@ -62,8 +62,8 @@ public class MultiplexerTest {
         Multiplexer mux = new Multiplexer(2);
         Potential[] result = CircuitComponentUtils.compute(mux,
                 Potentials.merge(
-                        Potentials.fromText("0010"),
-                        Potentials.fromText("01")));
+                        Potentials.fromTextB("0010"),
+                        Potentials.fromTextB("01")));
         Assertions.assertEquals("1", Potentials.toTextB(result));
     }
 }

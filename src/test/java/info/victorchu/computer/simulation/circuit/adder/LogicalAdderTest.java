@@ -16,12 +16,12 @@ class LogicalAdderTest {
         LogicalAdder adder = new LogicalAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("00"),
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("00"),
+                        Potentials.fromTextB("01"),
                         Potential.low()
                 )
         );
-        Assertions.assertEquals("001", Potentials.toText(result));
+        Assertions.assertEquals("001", Potentials.toTextB(result));
     }
 
     @Test
@@ -29,11 +29,11 @@ class LogicalAdderTest {
         LogicalAdder adder = new LogicalAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("00"),
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("00"),
+                        Potentials.fromTextB("01"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("010", Potentials.toText(result));
+        Assertions.assertEquals("010", Potentials.toTextB(result));
     }
 }

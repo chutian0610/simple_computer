@@ -16,12 +16,12 @@ public class RippleCarryAdderTest {
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("00"),
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("00"),
+                        Potentials.fromTextB("01"),
                         Potential.low()
                 )
         );
-        Assertions.assertEquals("001", Potentials.toText(result));
+        Assertions.assertEquals("001", Potentials.toTextB(result));
     }
 
     @Test
@@ -29,36 +29,36 @@ public class RippleCarryAdderTest {
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("00"),
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("00"),
+                        Potentials.fromTextB("01"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("010", Potentials.toText(result));
+        Assertions.assertEquals("010", Potentials.toTextB(result));
     }
     @Test
     public void input01_01_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("01"),
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("01"),
+                        Potentials.fromTextB("01"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("011", Potentials.toText(result));
+        Assertions.assertEquals("011", Potentials.toTextB(result));
     }
     @Test
     public void input10_01_1(){
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("10"),
-                        Potentials.fromText("01"),
+                        Potentials.fromTextB("10"),
+                        Potentials.fromTextB("01"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("100", Potentials.toText(result));
+        Assertions.assertEquals("100", Potentials.toTextB(result));
 
     }
     @Test
@@ -66,12 +66,12 @@ public class RippleCarryAdderTest {
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("10"),
-                        Potentials.fromText("10"),
+                        Potentials.fromTextB("10"),
+                        Potentials.fromTextB("10"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("101", Potentials.toText(result));
+        Assertions.assertEquals("101", Potentials.toTextB(result));
 
     }
     @Test
@@ -79,12 +79,12 @@ public class RippleCarryAdderTest {
         RippleCarryAdder adder = new RippleCarryAdder(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("11"),
-                        Potentials.fromText("11"),
+                        Potentials.fromTextB("11"),
+                        Potentials.fromTextB("11"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("111", Potentials.toText(result));
+        Assertions.assertEquals("111", Potentials.toTextB(result));
     }
 
     @Test
@@ -92,11 +92,11 @@ public class RippleCarryAdderTest {
         RippleCarryAdder adder = new RippleCarryAdder(3);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("011"),
-                        Potentials.fromText("001"),
+                        Potentials.fromTextB("011"),
+                        Potentials.fromTextB("001"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("0101", Potentials.toText(result));
+        Assertions.assertEquals("0101", Potentials.toTextB(result));
     }
 }

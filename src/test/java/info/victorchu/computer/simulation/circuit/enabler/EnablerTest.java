@@ -16,21 +16,21 @@ class EnablerTest {
         Enabler adder = new Enabler(2);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("10"),
+                        Potentials.fromTextB("10"),
                         Potential.low()
                 )
         );
-        Assertions.assertEquals("00", Potentials.toText(result));
+        Assertions.assertEquals("00", Potentials.toTextB(result));
     }
     @Test
     public void input101_1(){
         Enabler adder = new Enabler(3);
         Potential[] result= CircuitComponentUtils.compute(adder,
                 Potentials.merge(
-                        Potentials.fromText("101"),
+                        Potentials.fromTextB("101"),
                         Potential.high()
                 )
         );
-        Assertions.assertEquals("101", Potentials.toText(result));
+        Assertions.assertEquals("101", Potentials.toTextB(result));
     }
 }

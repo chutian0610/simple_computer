@@ -21,12 +21,12 @@ class Decoder1Test {
     @Test
     public void input0(){
         Potential[] result= CircuitComponentUtils.compute(decoder, Potential.low());
-        Assertions.assertArrayEquals(result, Potentials.fromText("01"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("01"));
     }
     @Test
     public void input1(){
         Potential[] result= CircuitComponentUtils.compute(decoder, Potential.high());
-        Assertions.assertArrayEquals(result, Potentials.fromText("10"));
+        Assertions.assertArrayEquals(result, Potentials.fromTextB("10"));
     }
 
 }
